@@ -1,38 +1,26 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
-    </v-content>
+    <v-container fluid>
+      <v-layout column align-center justify-center fill-height>
+        <currency />
+        <bmi />
+      </v-layout>
+    </v-container>
   </v-app>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld'
+<script lang="ts">
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import Api from './api/api';
+import Currency from '@/components/Currency.vue'
+import Bmi from '@/components/Bmi.vue'
 
-export default {
-  name: 'App',
+@Component({
   components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
-    }
+    Currency,
+    Bmi
   }
-}
+})
+export default class App extends Vue {}
 </script>
